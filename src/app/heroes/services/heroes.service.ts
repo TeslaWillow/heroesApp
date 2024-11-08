@@ -26,4 +26,9 @@ export class HeroesService {
     );
   }
 
+  public getSuggestions( query: string ): Observable<Hero[]> {
+    const url = `${this._baseUrl}/heroes?q=${query}`;
+    return this._http.get<Hero[]>(url);
+  }
+
 }
